@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqua Vrisksha - Premium Natural Aquarium Products</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1F7A63;
+            --secondary: #F4F1EC;
+            --accent: #C2A878;
+            --text: #1A1A1A;
+            --bg: #FFFFFF;
+            --light-text: #666666;
+            --border-color: #E8E3DC;
+            --shadow-sm: 0 2px 8px rgba(31, 122, 99, 0.08);
+            --shadow-md: 0 8px 24px rgba(31, 122, 99, 0.12);
+            --shadow-lg: 0 16px 40px rgba(31, 122, 99, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+        }
+
+        /* ===== UTILITIES ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #166652;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* ===== HEADER / NAV ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 48px;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        body {
+            padding-top: 80px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #F4F1EC 0%, #FFFFFF 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 140px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(31, 122, 99, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: -5%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(194, 168, 120, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            line-height: 1.2;
+            margin-bottom: 32px;
+            color: var(--text);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: var(--light-text);
+            margin-bottom: 56px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== TRUST SECTION ===== */
+        .trust {
+            background: var(--primary);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            text-align: center;
+        }
+
+        .trust-item h3 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .trust-item p {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 56px;
+            margin-bottom: 32px;
+            line-height: 1.3;
+            color: var(--text);
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .about p {
+            font-size: 18px;
+            color: var(--light-text);
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, var(--secondary) 0%, #E8E3DC 100%);
+            height: 500px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            font-size: 20px;
+            font-weight: 600;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ===== PRODUCTS SECTION ===== */
+        .products {
+            background: var(--secondary);
+        }
+
+        .products h2 {
+            font-size: 56px;
+            text-align: center;
+            margin-bottom: 80px;
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #E8E3DC 0%, #DDD4CC 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .product-info {
+            padding: 32px;
+        }
+
+        .product-info h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .product-info p {
+            font-size: 16px;
+            color: var(--light-text);
+            line-height: 1.7;
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .why-choose {
+            background: white;
+        }
+
+        .why-choose h2 {
+            font-size: 56px;
+            text-align: center;
+            margin-bottom: 80px;
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .why-item {
+            padding: 48px;
+            background: var(--secondary);
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .why-item:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateX(8px);
+        }
+
+        .why-item h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .why-item p {
+            font-size: 16px;
+            color: var(--light-text);
+            line-height: 1.8;
+        }
+
+        /* ===== EXPORT SECTION ===== */
+        .export {
+            background: linear-gradient(135deg, var(--primary) 0%, #165A4C 100%);
+            color: white;
+        }
+
+        .export-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .export h2 {
+            font-size: 56px;
+            margin-bottom: 32px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .export p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .export-image {
+            background: rgba(255, 255, 255, 0.1);
+            height: 500px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 20px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== FORM SECTION ===== */
+        .form-section {
+            background: var(--secondary);
+        }
+
+        .form-section h2 {
+            font-size: 56px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .form-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: var(--light-text);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .form-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 64px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 32px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+            color: var(--text);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(31, 122, 99, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background-color: #166652;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-submit:disabled {
+            background-color: #999;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-message {
+            margin-top: 20px;
+            padding: 16px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 15px;
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: #D4EDDA;
+            color: #155724;
+            display: block;
+        }
+
+        .form-message.error {
+            background-color: #F8D7DA;
+            color: #721C24;
+            display: block;
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials {
+            background: white;
+        }
+
+        .testimonials h2 {
+            font-size: 56px;
+            text-align: center;
+            margin-bottom: 80px;
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--secondary);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+        }
+
+        .stars {
+            color: var(--accent);
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            font-size: 17px;
+            color: var(--light-text);
+            margin-bottom: 24px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .testimonial-author-title {
+            font-size: 14px;
+            color: var(--light-text);
+            margin-top: 6px;
+        }
+
+        /* ===== FAQ SECTION ===== */
+        .faq {
+            background: var(--secondary);
+        }
+
+        .faq h2 {
+            font-size: 56px;
+            text-align: center;
+            margin-bottom: 80px;
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            padding: 28px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--text);
+            user-select: none;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--secondary);
+            padding-left: 32px;
+        }
+
+        .faq-icon {
+            display: inline-flex;
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 600px;
+        }
+
+        .faq-answer-content {
+            padding: 0 28px 28px;
+            color: var(--light-text);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+
+        .footer-brand p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: white;
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 15px;
+            margin-bottom: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #166652;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">Aqua Vrisksha</a>
+            <nav>
+                <a href="#products">Products</a>
+                <a href="#why">Why Us</a>
+                <a href="#form">Request Quote</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium Natural Aquarium Products, Sourced from India</h1>
+                <p>Exporting high-quality Indian Almond Leaves and eco-friendly aquarium essentials worldwide.</p>
+                <div class="hero-buttons">
+                    <a href="#form" class="btn btn-primary">Request Bulk Quote</a>
+                    <a href="#products" class="btn btn-secondary">Explore Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST SECTION -->
+    <section class="trust">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <h3>50,000+</h3>
+                    <p>Bulk Orders Fulfilled</p>
+                </div>
+                <div class="trust-item">
+                    <h3>80+</h3>
+                    <p>Countries Served</p>
+                </div>
+                <div class="trust-item">
+                    <h3>20+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="trust-item">
+                    <h3>100%</h3>
+                    <p>Premium Quality</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <h2>About Aqua Vrisksha</h2>
+                    <p>We are India's leading supplier of premium aquarium products, specializing in natural botanical essentials and eco-friendly solutions for global aquarium enthusiasts and professionals.</p>
+                    <p>Our products are ethically sourced, sustainably harvested, and certified for quality and safety. We partner with distributors, wholesalers, and retailers worldwide to deliver excellence in every shipment.</p>
+                    <p>From Indian Almond Leaves to advanced water conditioning products, we ensure your aquariums thrive naturally.</p>
+                </div>
+                <div class="about-image">
+                    [Natural Aquarium Product Image]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2>Our Product Highlights</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">[Indian Almond Leaves]</div>
+                    <div class="product-info">
+                        <h3>Indian Almond Leaves</h3>
+                        <p>Premium quality natural leaves that condition water and provide essential tannins for fish health.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">[Botanical Add-ons]</div>
+                    <div class="product-info">
+                        <h3>Botanical Add-ons</h3>
+                        <p>Eco-friendly aquarium botanicals including pods, branches, and seeds for natural tank setup.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">[Water Conditioning]</div>
+                    <div class="product-info">
+                        <h3>Water Conditioning Products</h3>
+                        <p>Advanced formulations to maintain optimal pH, hardness, and water quality for thriving aquatic life.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">[Custom Orders]</div>
+                    <div class="product-info">
+                        <h3>Custom Bulk Orders</h3>
+                        <p>Tailored solutions for large-scale distributors and retailers with dedicated support and flexible terms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="why-choose" id="why">
+        <div class="container">
+            <h2>Why Choose Aqua Vrisksha</h2>
+            <div class="why-choose-grid">
+                <div class="why-item">
+                    <h3>Direct from Source</h3>
+                    <p>Sourced directly from sustainable Indian suppliers, ensuring authentic quality and competitive pricing.</p>
+                </div>
+                <div class="why-item">
+                    <h3>Global Shipping</h3>
+                    <p>Reliable logistics partners for seamless worldwide delivery with tracking and insurance options.</p>
+                </div>
+                <div class="why-item">
+                    <h3>Bulk Discounts</h3>
+                    <p>Competitive wholesale pricing with volume-based discounts for qualified distributors and retailers.</p>
+                </div>
+                <div class="why-item">
+                    <h3>Quality Assurance</h3>
+                    <p>Rigorous testing and certifications ensure every product meets international standards and customer expectations.</p>
+                </div>
+                <div class="why-item">
+                    <h3>Expert Support</h3>
+                    <p>Dedicated account managers and technical support to assist with product selection and logistics.</p>
+                </div>
+                <div class="why-item">
+                    <h3>Fast Response</h3>
+                    <p>Quick quote generation and flexible order timelines to meet your urgent bulk requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPORT / LOGISTICS SECTION -->
+    <section class="export">
+        <div class="container">
+            <div class="export-content">
+                <div>
+                    <h2>Global Export Excellence</h2>
+                    <p>We understand the complexities of international bulk orders. Our streamlined logistics network ensures your products arrive safely, on time, and in perfect condition.</p>
+                    <p><strong>Our Capabilities:</strong></p>
+                    <p>✓ Container and LCL shipments<br>
+                    ✓ Door-to-door delivery options<br>
+                    ✓ Full documentation support<br>
+                    ✓ Real-time tracking<br>
+                    ✓ Competitive freight rates</p>
+                </div>
+                <div class="export-image">
+                    [Global Logistics & Shipping]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM SECTION -->
+    <section class="form-section" id="form">
+        <div class="container">
+            <h2>Request Bulk Quote</h2>
+            <p class="form-subtitle">Tell us about your bulk requirements and we'll provide a customized quote within 24 hours.</p>
+            
+            <div class="form-wrapper">
+                <form id="quoteForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <button type="submit" class="form-submit">Request Quote</button>
+                    
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Exceptional quality and reliability. Aqua Vrisksha has been our trusted supplier for 5 years. Every shipment arrives perfect."</p>
+                    <p class="testimonial-author">Kumar Patel</p>
+                    <p class="testimonial-author-title">Aquatic Distributors, UK</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Best prices in the market combined with outstanding customer service. Our margins have improved significantly since switching."</p>
+                    <p class="testimonial-author">Maria González</p>
+                    <p class="testimonial-author-title">Pet Store Chain, Spain</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Fast shipping, perfect packaging, and products that our customers absolutely love. Aqua Vrisksha is our go-to supplier."</p>
+                    <p class="testimonial-author">David Chen</p>
+                    <p class="testimonial-author-title">Aquarium Supplies, Australia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is the minimum order quantity?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We accept bulk orders from 50 kg upwards. Larger quantities qualify for better pricing and flexible payment terms. Contact us for customized solutions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What are your shipping times?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Domestic orders typically ship within 3-5 days. International shipments take 2-4 weeks depending on destination and shipping method. We offer express options for urgent orders.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you provide samples?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes! We provide free samples of up to 500g for qualified bulk buyers. Samples help you verify quality before placing large orders.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are your products certified?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            All products comply with international quality standards including ISO certifications, FSSC 22000, and organic certifications where applicable.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What payment methods do you accept?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We accept bank transfers, letters of credit (L/C), and other trade finance options. For established partners, we offer NET 30/60 payment terms.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Aqua Vrisksha</h3>
+                    <p>Premium natural aquarium products from India, exported globally with excellence since 2006.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#products">Products</a>
+                    <a href="#why">Why Choose Us</a>
+                    <a href="#form">Request Quote</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <a href="mailto:info@aquavrisksha.com">info@aquavrisksha.com</a>
+                    <a href="tel:+91-XXXX-XXXXXX">+91-XXXX-XXXXXX</a>
+                    <a href="#hero">Get Quote</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Aqua Vrisksha. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== FORM SUBMISSION TO GOOGLE APPS SCRIPT =====
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwvZx5YIwEFmYy4uOdMZVJiWFHssuP_lO-51VlbSe2nPUGWlo9ayU8hJKUg5FNppJIrAQ/exec';
+
+        const form = document.getElementById('quoteForm');
+        const formMessage = document.getElementById('formMessage');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            // Validate
+            if (!name || !email || !phone) {
+                showError('Please fill in all fields.');
+                return;
+            }
+
+            // Build URL with query parameters
+            const url = SCRIPT_URL + '?' + new URLSearchParams({
+                name: name,
+                email: email,
+                phone: phone
+            });
+
+            // Disable submit button
+            const submitBtn = form.querySelector('.form-submit');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            // Send with GET request (no-cors)
+            fetch(url, {
+                method: 'GET',
+                mode: 'no-cors'
+            })
+            .then(() => {
+                showSuccess('Quote request submitted! We\'ll contact you within 24 hours.');
+                form.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Request Quote';
+            })
+            .catch((error) => {
+                showError('Error submitting request. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Request Quote';
+            });
+        });
+
+        function showSuccess(message) {
+            formMessage.className = 'form-message success';
+            formMessage.textContent = message;
+            setTimeout(() => {
+                formMessage.className = 'form-message';
+            }, 5000);
+        }
+
+        function showError(message) {
+            formMessage.className = 'form-message error';
+            formMessage.textContent = message;
+            setTimeout(() => {
+                formMessage.className = 'form-message';
+            }, 5000);
+        }
+
+        // ===== FAQ ACCORDION =====
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // ===== SMOOTH SCROLL ENHANCEMENT =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===== FADE IN ANIMATION ON SCROLL =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
